@@ -17,7 +17,7 @@ The method combines **meta-learning** with a **neural operator based architectur
 
 ### 🚀 Code Release
 
-The code and pretrained models will be released soon.  
+The code will be released soon.  
 Stay tuned for updates once the camera-ready version is finalized.
 
 ---
