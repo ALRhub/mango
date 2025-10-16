@@ -15,7 +15,7 @@
   <meta name="keywords" content="Graph Neural Networks, Meta-Learning, Physical Simulation, Machine Learning, Generalization">
 
   <title>MaNGO — Adaptable Graph Network Simulators via Meta-Learning</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
@@ -71,7 +71,13 @@
   <section class="hero teaser">
     <div class="container is-max-desktop has-text-centered">
       <img src="static/images/mango_teaser.png" alt="MaNGO Schematic Overview" style="max-width: 100%; margin-top: 1em;">
-      <h2 class="subtitle">Illustration of MaNGO’s meta-learning framework for adaptable graph network simulators.</h2>
+      <h2 class="subtitle">  Learning to simulate physics while inferring simulation parameters from similar trials leads to our proposed
+    Meta Neural Graph Operator (MaNGO) approach.
+  The context set is aggregated to form a latent representation of material properties.
+  Given an unseen initial state, the Graph Network Simulator (GNS) uses this latent representation
+  to generate trials that follow the material laws of the context set, enabling accurate predictions
+  for new conditions. The example <span style="color: blue;">prediction</span> aligns perfectly with
+  the <span style="color: red;">ground truth data</span>.</h2>
     </div>
   </section>
 
@@ -81,72 +87,107 @@
       <h2 class="title is-3">Abstract</h2>
       <div class="content has-text-justified">
         <p>
-          We introduce MaNGO (Meta-learned Adaptable Graph Network Operators), a framework for developing graph network simulators that generalize across diverse physical systems. MaNGO leverages meta-learning to rapidly adapt to unseen domains with minimal fine-tuning, achieving data-efficient generalization in both dynamic and static simulation tasks. We demonstrate that MaNGO outperforms existing GNN-based simulators on multiple physics benchmarks and exhibits strong transfer capabilities across system configurations.
+          Accurately simulating physics is crucial across scientific domains, with applications spanning from robotics to materials science. While traditional mesh-based simulations are precise, they are often computationally expensive and require knowledge of physical parameters, such as material properties. In contrast, data-driven approaches like Graph Network Simulators (GNSs) offer faster inference but suffer from two key limitations: Firstly, they must be retrained from scratch for even minor variations in physical parameters, and secondly they require labor-intensive data collection for each new parameter setting. This is inefficient, as simulations with varying parameters often share a common underlying latent structure.
+    In this work, we address these challenges by learning this shared structure through meta-learning, enabling fast adaptation to new physical parameters without retraining.
+    To this end, we propose a novel architecture that generates a latent representation by encoding graph trajectories using conditional neural processes (CNPs). To mitigate error accumulation over time, we combine CNPs with a novel neural operator architecture.
+    We validate our approach, Meta Neural Graph Operator (MaNGO), on several dynamics prediction tasks with varying material properties, demonstrating superior performance over existing GNS methods. Notably, MaNGO achieves accuracy on unseen material properties close to that of an oracle model.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Method -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3">Method</h2>
-      <div class="content has-text-justified">
-        <p>
-          MaNGO combines graph neural simulators with meta-learning to achieve adaptability and data efficiency. The model consists of a graph-based encoder-decoder structure embedded within a meta-learning loop. During training, MaNGO learns to infer simulation dynamics that generalize to new physical systems by optimizing across a distribution of related tasks.
-        </p>
-        <p>
-          Specifically, MaNGO employs an inner-loop adaptation mechanism that fine-tunes latent dynamics representations to each system, while the outer-loop meta-optimizer updates shared parameters for cross-domain generalization. This design allows MaNGO to adapt to new materials, geometries, or boundary conditions with limited data.
-        </p>
-      </div>
-    </div>
-  </section>
+<section class="section hero is-light">
+<div class="container is-max-desktop has-text-centered">
+<h2 class="title is-3">Method</h2>
+<div class="content has-text-justified">
+<p>
+MaNGO (Meta Neural Graph Operator) uses meta-learning to make graph-based simulators adaptable to new physical systems. It learns from many related simulations, each with different material properties or conditions, and builds a shared understanding that helps it generalize to unseen scenarios.
+</p>
+
+
+<p>
+<b>Meta-Learning and Physical Parameters:</b> During training, MaNGO learns to infer a latent description of the underlying simulation parameters directly from context data. Using a Conditional Neural Process (CNP) framework, it encodes this information into a compact representation that guides the simulation. This enables MaNGO to generate trials consistent with the inferred material behavior in an end-to-end, data-driven manner.
+</p>
+
+
+<p>
+<b>Spatiotemporal Encoder:</b> The encoder extracts meaningful information from sequences of graphs that evolve over time. It processes time-dependent changes with a 1D convolution and summarizes spatial relationships using a Deep Set aggregation. This way, the encoder builds a compact, translation-invariant representation of the system’s motion and structure.
+</p>
+
+
+
+<p>
+<b>MaNGO Decoder:</b> The MaNGO decoder follows a neural operator paradigm, predicting the full simulation trajectory from start to end in a single forward pass. It alternates between message passing across nodes (spatial reasoning) and convolution across time (temporal reasoning). This design enables faster simulation times and reduces the error propagation that commonly occurs in autoregressive learned simulators.
+</p>
+
+<div class="has-text-centered" style="margin: 2em 0;">
+<img src="static/images/mango_decoder_architecture.png" alt="MaNGO Decoder Architecture" style="max-width: 100%; border-radius: 8px;">
+<p>Overview of the MaNGO decoder architecture. It takes the latent representation from the encoder and an initial state as input, and outputs a sequence of future graphs.</p>
+</div>
+
+
+<p>
+<b>Summary:</b> Together, these components allow MaNGO to simulate new materials and environments without retraining from scratch. Its meta-learning setup and graph-based design make it a powerful tool for modeling diverse physical phenomena in a data-efficient and generalizable way.
+</p>
+</div>
+</div>
+</section>
 
   <!-- Qualitative Results -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container is-max-desktop has-text-centered">
-        <h2 class="title is-3">Qualitative Results</h2>
-        <div class="columns is-centered">
-          <div class="column is-half">
-            <video width="100%" controls poster="static/images/video_placeholder1.png">
-              <source src="static/videos/result1.mp4" type="video/mp4">
-            </video>
-            <p class="subtitle">Adaptation to novel spring-mass systems.</p>
-          </div>
-          <div class="column is-half">
-            <video width="100%" controls poster="static/images/video_placeholder2.png">
-              <source src="static/videos/result2.mp4" type="video/mp4">
-            </video>
-            <p class="subtitle">Transfer to unseen physical domains.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Qualitative Results</h2>
 
-  <!-- Quantitative Results -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container is-max-desktop has-text-centered">
-        <h2 class="title is-3">Quantitative Results</h2>
-        <div class="content">
-          <img src="static/images/quanti_placeholder.png" alt="Quantitative Results Placeholder" style="max-width: 80%;">
-          <p class="subtitle">Placeholder for benchmark comparisons of MaNGO vs. baseline simulators.</p>
-        </div>
+      <video width="80%" controls poster="static/images/video_placeholder.png" style="border-radius: 8px;">
+        <source src="static/videos/mango_qualitative_results.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <p class="subtitle" style="margin-top: 1em;">
+        Example simulation demonstrating MaNGO’s ability to adapt to unseen physical conditions.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Quantitative Results -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Quantitative Results</h2>
+
+      <div class="content" style="margin-top: 1.5em;">
+        <img src="static/images/quantitative_1.png" alt="Quantitative Results 1" style="max-width: 100%; border-radius: 8px; margin-bottom: 1.5em;">
+        <p class="subtitle has-text-centered" style="margin-top: 0.5em;">
+          Performance comparison of MaNGO and baseline methods across four datasets.
+We report the mean and 95% confidence interval of the Full Rollout MSE over five runs. The x-axis shows the number of context samples used for meta-learning. MaNGO consistently outperforms non-meta-learning and alternative meta-learning baselines, achieving performance close to the oracle model with access to ground-truth parameters.
+        </p>
+
+        <img src="static/images/quantitative_2.png" alt="Quantitative Results 2" style="max-width: 100%; border-radius: 8px; margin-top: 2em;">
+        <p class="subtitle has-text-centered" style="margin-top: 0.5em;">
+          <b>Left:</b> Comparison of different GNS decoders with oracle information. MaNGO outperforms both MGN and EGNO, with the gap most pronounced in the Sphere Cloth Coupling task due to its complex dynamics.
+            <br>
+            <b>Right:</b> Visualization of the 2D latent space for Deformable Plate (Easy), color-coded by Poisson’s ratio. The sharp bend at a Poisson ratio of 0 separates materials with positive and negative Poisson behavior, showing that MaNGO’s latent representation effectively distinguishes between fundamentally different material regimes.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- BibTeX -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@inproceedings{dahlinger2025mango,
-  title={MaNGO: Adaptable Graph Network Simulators via Meta-Learning},
-  author={Dahlinger, Philipp and Hoang, Tai and Blessing, Denis and Freymuth, Niklas and Neumann, Gerhard},
-  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
-  year={2025}
+      <pre><code>
+        @article{dahlinger2025mango,
+          title={MaNGO — Adaptable Graph Network Simulators via Meta-Learning},
+          author={Dahlinger, Philipp and Hoang, Tai and Blessing, Denis and Freymuth, Niklas and Neumann, Gerhard},
+          journal={arXiv preprint arXiv:2510.05874},
+          year={2025}
+        }
 }</code></pre>
     </div>
   </section>
