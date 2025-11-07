@@ -1,0 +1,3 @@
+name: step_lr
+step_size: 70  # if not null, overrides number_of_steps computation
+gamma: 0.5  # factor by which to decrease the learning rate

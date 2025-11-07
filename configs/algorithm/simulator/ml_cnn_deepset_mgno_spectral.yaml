@@ -1,0 +1,8 @@
+defaults:
+  - encoder: cnn_deepset
+  - decoder: mgno
+
+decoder:
+  time_conv_type: spectral
+
+name: ml_cnn_deepset_mgno_spectral

@@ -1,0 +1,8 @@
+defaults:
+  - encoder: dummy
+  - decoder: hmpn_step_simulator
+
+name: no_ml_mgn
+
+encoder:
+  latent_dimension: 0

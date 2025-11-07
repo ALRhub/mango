@@ -1,0 +1,7 @@
+name: mgn
+node_aggregation: virtual_node  # virtual_node, mean, max
+n_layers: 10
+latent_dimension: 128
+scatter_reduce: mean
+activation: leakyrelu
+use_hidden_layers: False

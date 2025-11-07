@@ -1,0 +1,9 @@
+defaults:
+  - encoder: dummy
+  - decoder: mgno
+
+
+decoder:
+  time_conv_type: conv_decoder
+
+name: ml_dummy_mgno_time_conv

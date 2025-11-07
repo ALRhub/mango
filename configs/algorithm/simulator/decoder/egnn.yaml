@@ -1,0 +1,5 @@
+name: egnn
+n_layers: 10
+context_encoding_dimension: ${..encoder.latent_dimension}
+latent_dimension: 128
+noise_scale: 0.0001

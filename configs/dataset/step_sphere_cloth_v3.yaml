@@ -1,0 +1,33 @@
+name: sphere_cloth_step_ml
+wandb_name: sphere_cloth_ml
+root: ../datasets/ltsgnsv2/sphere_cloth_v3.hdf5
+#root: /mnt/lsdf/for5339/datasets/ltsgnsv2/sphere_cloth_v1.hdf5
+z_pos_feature: False # for step based decoder, the z position is used as an additional feature
+
+
+train_dataset:
+  root: ${dataset.root}
+  step: True
+  return_type: ${algorithm.dataset_return_type}
+  batch_size: 32
+  initial_vel: zero  # choose between zero and constant
+  dataset_size: null  # artificially reduce dataset size for debugging
+  random_traj_selection: null
+  material_properties: False
+  noise_scale: 0.001
+  future_length: 1
+  time_subsampling: 1
+  regression: False
+
+
+eval_dataset:
+  root: ${dataset.root}
+  step: False
+  initial_vel: ${..train_dataset.initial_vel}
+  dataset_size: null # artificially reduce dataset size for debugging
+  random_traj_selection: False
+  context_size: 4  # deterministic
+  target_size: 16
+  material_properties: ${..train_dataset.material_properties}
+  time_subsampling: ${..train_dataset.time_subsampling}
+  regression: ${..train_dataset.regression}

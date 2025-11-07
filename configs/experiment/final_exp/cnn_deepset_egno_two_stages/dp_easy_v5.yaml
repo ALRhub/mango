@@ -1,0 +1,32 @@
+# @package _global_
+
+defaults:
+  - override /dataset: dp_easy_v5
+  - override /algorithm: ltsgns_v2_two_stages
+  - override /algorithm/simulator: ml_cnn_deepset_egno
+
+logger:
+  wandb:
+    enabled: True
+
+dataset:
+  train_dataset:
+    dataset_size: null
+    material_properties: False
+  eval_dataset:
+    dataset_size: null
+
+trainer:
+  epochs: 8000
+  num_sanity_val_steps: 1
+  checkpointing: True
+exp_name: exp6001_dp_easy_v5_two_stages_egno
+
+hydra:
+  sweeper:
+    grid_params:
+      seed: 100, 101, 102, 103, 104
+
+
+
+

@@ -1,0 +1,12 @@
+epochs: 1000
+accelerator: gpu
+devices: 1
+accumulate_grad_batches: 1
+precision: 16-mixed
+check_val_every_n_epoch: ${algorithm.check_val_every_n_epoch}
+fast_dev_run: False
+matmul_precision: null
+num_sanity_val_steps: 2
+checkpointing: True
+enable_progress_bar: False
+gradient_clip_val: 0

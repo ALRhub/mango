@@ -1,0 +1,18 @@
+defaults:
+  - simulator: ???
+  - optimizer: adamw
+  - scheduler: standard
+  - evaluator: ml_evaluator
+  - _self_
+
+name: ltsgns_v2_two_stages
+mat_prop_activation: relu
+stages_switch_epoch: 500
+verbose: False
+regression: True
+check_val_every_n_epoch: 10
+
+# change that the simulator decoder uses the material properties dim as context encoding dimension
+simulator:
+  decoder:
+    context_encoding_dimension: ${dataset.train_dataset.material_properties_dim}

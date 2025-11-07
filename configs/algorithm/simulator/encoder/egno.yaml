@@ -1,0 +1,5 @@
+name: egno
+node_aggregation: virtual_node  # virtual_node, mean, max
+n_layers: 7
+latent_dimension: 128
+time_emb_dim: 32

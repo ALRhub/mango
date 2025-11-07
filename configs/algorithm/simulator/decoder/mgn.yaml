@@ -1,0 +1,19 @@
+name: mgn
+n_layers: 15
+context_encoding_dimension: ${..encoder.latent_dimension}
+scatter_reduce: mean
+activation: leakyrelu
+use_hidden_layers: False
+z_pos_feature: ${dataset.z_pos_feature}
+latent_dimension: 128
+output_decoder:
+  latent_dimension: 128
+  regularization:
+    dropout: 0.0
+  tanh:
+    enabled: True
+    scale_factor: 0.1
+    input_scale_factor: 0.1
+
+
+noise_scale: 0.0001  # only for meta learning relevant, the MGN baseline gets its noise from the dataset itself

@@ -1,0 +1,5 @@
+defaults:
+  - encoder: egno
+  - decoder: egnn
+
+name: ml_egno_egnn

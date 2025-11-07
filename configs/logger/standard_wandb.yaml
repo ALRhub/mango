@@ -1,0 +1,19 @@
+visualizations: True
+checkpoint: False  # whether to log checkpoints of the task. This can e.g, be the networks used for the individual
+# algorithms
+checkpoint_frequency: 100  # checkpointing can quickly become expensive for larger models. We also may only want
+# to do this every n iterations.
+wandb:
+  enabled: True  # whether to use the wandb logger or not
+  project_name: StampFormingSim  # name of the project
+  entity: null  # name of the entity to log to. Will default to your private wandb account
+  group_name: ${exp_name}
+  run_name: seed_${seed}
+  job_type: ${sub_dir_shortener:${hydra:job.override_dirname}, 3, False}
+  dev: False  # whether to mark this run in wandb as development run
+#  job_type: ${hydra:job.override_dirname}
+  # only used categorizing wandb projects
+  tags: null  # list of custom tags to sort/find these runs by
+  start_method: "thread"  # start method for wandb. "thread" is recommended for slurm and on your cluster.
+  # null will use the default wandb start method,
+  # which is "fork" on linux and "spawn" on windows (according to copilot)

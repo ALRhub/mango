@@ -1,0 +1,32 @@
+# @package _global_
+
+defaults:
+  - override /dataset: dp_hard_v5
+  - override /algorithm: ltsgns_v2_training_mat_prop
+  - override /algorithm/simulator: ml_cnn_deepset_mgno_time_conv
+
+logger:
+  wandb:
+    enabled: True
+
+dataset:
+  train_dataset:
+    dataset_size: null
+    material_properties: False
+  eval_dataset:
+    dataset_size: null
+
+trainer:
+  epochs: 8000
+  num_sanity_val_steps: 1
+  checkpointing: True
+exp_name: exp5403_dp_hard_v5_ml_mgno
+
+hydra:
+  sweeper:
+    grid_params:
+      seed: 100, 101, 102, 103, 104
+
+
+
+

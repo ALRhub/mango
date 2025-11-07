@@ -1,0 +1,38 @@
+# @package _global_
+
+defaults:
+  - override /dataset: dp_easy_v5
+  - override /algorithm: ltsgns_v2
+  - override /algorithm/simulator: ml_dummy_mgno_time_conv
+  - override /algorithm/optimizer: adamw
+  - override /algorithm/evaluator: test_evaluator
+
+
+loading:
+  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/dpv5_easy/exp5203_dp_easy_v5_dummy_mgno
+
+logger:
+  wandb:
+    enabled: False
+
+dataset:
+  train_dataset:
+    dataset_size: null
+    material_properties: False
+  eval_dataset:
+    dataset_size: null
+
+trainer:
+  epochs: 8000
+  num_sanity_val_steps: 1
+  checkpointing: False
+exp_name: EVAL_stuff
+seed: 0
+
+hydra:
+  sweeper:
+    grid_params:
+      loading.seeds: seed_100, seed_101, seed_102, seed_103, seed_104
+
+
+

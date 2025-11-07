@@ -1,0 +1,5 @@
+defaults:
+  - encoder: cnn_deepset
+  - decoder: egno
+
+name: ml_cnn_deepset_egno

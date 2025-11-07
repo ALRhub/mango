@@ -1,0 +1,11 @@
+defaults:
+  - encoder: mgno
+  - decoder: mgno
+
+name: ml_mgno_mgno
+
+encoder:
+  time_conv_type: spectral
+
+decoder:
+  time_conv_type: spectral

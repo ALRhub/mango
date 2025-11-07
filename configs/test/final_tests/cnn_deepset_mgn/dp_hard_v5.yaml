@@ -1,0 +1,38 @@
+# @package _global_
+
+defaults:
+  - override /dataset: dp_hard_v5
+  - override /algorithm: ltsgns_v2_training_mat_prop
+  - override /algorithm/simulator: ml_cnn_deepset_mgn
+  - override /algorithm/evaluator: test_evaluator
+
+
+loading:
+  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/dpv5_hard/exp5504_dp_hard_v5_ml_mgn
+
+logger:
+  wandb:
+    enabled: False
+
+dataset:
+  train_dataset:
+    dataset_size: null
+    material_properties: False
+  eval_dataset:
+    dataset_size: null
+
+trainer:
+  epochs: 8000
+  num_sanity_val_steps: 1
+  checkpointing: False
+exp_name: EVAL_stuff
+seed: 0
+
+hydra:
+  sweeper:
+    grid_params:
+      loading.seeds: seed_100, seed_101, seed_102, seed_103, seed_104
+
+
+
+

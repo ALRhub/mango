@@ -1,0 +1,6 @@
+name: reduce_lr_on_plateau
+factor: 0.2  # factor by which to decrease the learning rate
+patience: 2  # number of epochs with no improvement after which learning rate will be reduced # this is scaled by check_val_every_n_epoch
+threshold: 1.0e-4  # threshold for measuring the new optimum, to only focus on significant changes
+threshold_mode: rel  # one of rel, abs
+min_lr: 1.0e-8  # a lower bound on the learning rate

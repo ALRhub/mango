@@ -1,0 +1,6 @@
+name: egno
+n_layers: 15
+context_encoding_dimension: ${..encoder.latent_dimension}
+latent_dimension: 128
+time_emb_dim: 32
+z_pos_feature: ${dataset.z_pos_feature}

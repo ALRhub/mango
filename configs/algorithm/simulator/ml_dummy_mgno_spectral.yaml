@@ -1,0 +1,8 @@
+defaults:
+  - encoder: dummy
+  - decoder: mgno
+
+decoder:
+  time_conv_type: spectral
+
+name: ml_dummy_mgno_spectral

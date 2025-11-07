@@ -1,0 +1,13 @@
+defaults:
+  - simulator: ml_dummy_mgn
+  - optimizer: adamw
+  - scheduler: standard
+  - evaluator: ml_evaluator
+  - _self_
+
+dataset_return_type: dict
+
+name: no_ml_mgn
+verbose: False
+regression: False
+check_val_every_n_epoch: 1

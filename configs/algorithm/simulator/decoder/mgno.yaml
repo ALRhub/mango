@@ -1,0 +1,20 @@
+name: mgno
+n_layers: 15
+context_encoding_dimension: ${..encoder.latent_dimension}
+scatter_reduce: mean
+activation: leakyrelu
+use_hidden_layers: False
+z_pos_feature: ${dataset.z_pos_feature}
+latent_dimension: 128
+time_emb_dim: 32
+time_conv_type: spectral
+dropout: 0.0
+output_decoder:
+  latent_dimension: 128
+  regularization:
+    dropout: 0.0
+  tanh:
+    enabled: False
+    scale_factor: 0.1
+    input_scale_factor: 0.1
+

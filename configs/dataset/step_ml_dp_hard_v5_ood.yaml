@@ -1,0 +1,33 @@
+name: dp_step_ml
+wandb_name: dp_hard_v5_ood_ml
+root: ../datasets/ltsgnsv2/ml_dp_hard_v5_ood.hdf5
+z_pos_feature: False
+
+
+train_dataset:
+  root: ${dataset.root}
+  step: True
+  return_type: ${algorithm.dataset_return_type}   # only for step-based datasets: choose between torch_geometric, torch_geometric_without_vel or dict
+  initial_vel: zero  # choose between zero and constant
+  batch_size: 32
+  dataset_size: null  # artificially reduce dataset size for debugging
+  random_traj_selection: null  # needs to be set to something
+  material_properties: False
+  noise_scale: 0.0007
+  future_length: 1
+  time_subsampling: 1
+  regression: False
+
+
+
+eval_dataset:
+  root: ${dataset.root}
+  step: False
+  initial_vel: ${..train_dataset.initial_vel}
+  dataset_size: null # artificially reduce dataset size for debugging
+  random_traj_selection: False
+  context_size: 4  # deterministic
+  target_size: 16
+  material_properties: ${..train_dataset.material_properties}
+  time_subsampling: ${..train_dataset.time_subsampling}
+  regression: ${..train_dataset.regression}

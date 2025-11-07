@@ -1,0 +1,5 @@
+eval_only: False
+initial_eval: True
+first_seed_only: False
+animation_indices: [0, 2]
+metric: [mse]

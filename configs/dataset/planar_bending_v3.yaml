@@ -1,0 +1,36 @@
+name: pb_ml
+wandb_name: pb_v3_ml
+root: ../datasets/ltsgnsv2/ml_pb_v3.hdf5
+# root: /mnt/lsdf/for5339/datasets/ltsgnsv2/ml_pb_v2.hdf5
+z_pos_feature: False
+
+
+train_dataset:
+  root: ${dataset.root}
+  step: False
+  batch_size: 1
+  initial_vel: zero  # choose between zero and constant
+  dataset_size: null  # artificially reduce dataset size for debugging
+  random_traj_selection: True
+  min_context_size: 1
+  max_context_size: 8
+  min_target_size: 1
+  max_target_size: 1
+  material_properties: False
+  material_properties_dim: 1
+  time_subsampling: 1
+  regression: ${algorithm.regression}
+
+
+eval_dataset:
+  root: ${dataset.root}
+  step: False
+  initial_vel: ${..train_dataset.initial_vel}
+  dataset_size: null # artificially reduce dataset size for debugging
+  random_traj_selection: False
+  context_size: 4  # deterministic
+  target_size: 16
+  material_properties: ${..train_dataset.material_properties}
+  material_properties_dim: 1
+  time_subsampling: ${..train_dataset.time_subsampling}
+  regression: ${algorithm.regression}

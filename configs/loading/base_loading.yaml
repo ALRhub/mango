@@ -1,0 +1,6 @@
+enable_loading: True  # general flag if loading is enabled
+checkpoint: best   # Choose between "best" and "last", or specify an epoch (has to be one of the saved epochs)
+root_path: ???  # path to the root of the experiment
+output_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/evaluations
+seeds: null
+job_types: null

@@ -1,0 +1,5 @@
+defaults:
+  - encoder: cnn_deepset
+  - decoder: mgn
+
+name: ml_cnn_deepset_mgn

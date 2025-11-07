@@ -1,0 +1,33 @@
+# @package _global_
+
+defaults:
+  - override /dataset: step_ml_planar_bending_hard_v1
+  - override /algorithm: no_ml_mgn
+  - override /algorithm/optimizer: adam
+
+logger:
+  wandb:
+    enabled: True
+
+dataset:
+  train_dataset:
+    dataset_size: null
+    material_properties: True
+  eval_dataset:
+    dataset_size: null
+
+trainer:
+  epochs: 2000
+  num_sanity_val_steps: 1
+  checkpointing: True
+exp_name: exp5101_pb_hard_v1_mgn_oracle
+
+hydra:
+  sweeper:
+    grid_params:
+      seed: 100, 101, 102, 103, 104
+
+
+
+
+

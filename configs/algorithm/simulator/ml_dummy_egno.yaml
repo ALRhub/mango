@@ -1,0 +1,5 @@
+defaults:
+  - encoder: dummy
+  - decoder: egno
+
+name: ml_dummy_egno

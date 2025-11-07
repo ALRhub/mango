@@ -1,0 +1,5 @@
+defaults:
+  - encoder: transformer
+  - decoder: mgno
+
+name: ml_transformer_mgno

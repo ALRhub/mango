@@ -1,0 +1,21 @@
+# @package _global_
+
+# With the change from Horeka in 2024, that single GPUs can be allocated, this simplifies the configuration and should
+# allow faster queueing times. This configuration is for a single GPU on Horeka.
+
+defaults:
+  - override /hydra/launcher: submitit_slurm
+
+hydra:
+  mode: MULTIRUN  # needed for launcher to be used
+  launcher:
+    # launcher/cluster specific options
+    partition: "dev_accelerated"
+    timeout_min: 30 # in minutes
+    gres: gpu:1
+    mem_per_gpu: 125400  # in MB
+    additional_parameters:
+      cpus-per-task: 16
+      account: hk-project-p0024023
+
+

@@ -1,0 +1,8 @@
+defaults:
+  - encoder: mgn
+  - decoder: mgno
+
+decoder:
+  time_conv_type: conv_decoder
+
+name: ml_mgn_mgno_time_conv

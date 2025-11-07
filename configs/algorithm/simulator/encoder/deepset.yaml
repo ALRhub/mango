@@ -1,0 +1,3 @@
+name: deepset
+latent_dimension: 128
+time_subsampling: 1

@@ -1,0 +1,16 @@
+name: transformer
+n_layers: 7
+latent_dimension: 128
+spatial_module:
+  transformer_hidden_size: 128
+  transformer_n_layers: 2
+  transformer_n_heads: 2
+  transformer_dropout: False
+
+temporal_module: deepset # deepset, transformer, last_time_step
+temporal_module_transformer:
+  transformer_hidden_size: 128
+  transformer_n_layers: 2
+  transformer_n_heads: 2
+  transformer_dropout: False
+  transformer_pos_embedding: True
