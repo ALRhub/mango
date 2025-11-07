@@ -6,6 +6,8 @@ This repository will host the official code release for our **NeurIPS 2025** pap
 > Philipp Dahlinger, Tai Hoang, Denis Blessing, Niklas Freymuth, Gerhard Neumann
 > Karlsruhe Institute of Technology (KIT)
 
+Check out our [project page](https://alrhub.github.io/mango/) for an overview and visualizations of all tasks!
+
 ---
 
 ### 📘 Overview
@@ -15,10 +17,14 @@ The method combines **meta-learning** with a **neural operator based architectur
 
 ---
 
-### 🚀 Code Release
+### Installation
+We use `uv` as our environment manager. To set up the environment, run:
 
-The code will be released soon.  
-Stay tuned for updates once the camera-ready version is finalized.
+```bash
+# Create a virtual environment (recommended)
+uv venv
+uv sync
+```
 
 ---
 
