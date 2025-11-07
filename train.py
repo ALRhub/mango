@@ -9,8 +9,8 @@ from lightning import Trainer
 from omegaconf import OmegaConf
 from lightning.pytorch.callbacks import ModelCheckpoint, LearningRateMonitor
 
-from stamp_forming_sim.util.initialization import load_omega_conf_resolvers, main_initialization
-from stamp_forming_sim.util.own_types import ConfigDict
+from mango.util.initialization import load_omega_conf_resolvers, main_initialization
+from mango.util.own_types import ConfigDict
 
 # full stack trace
 os.environ['HYDRA_FULL_ERROR'] = '1'

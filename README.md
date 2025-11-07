@@ -25,6 +25,10 @@ We use `uv` as our environment manager. To set up the environment, run:
 uv venv
 uv sync
 ```
+For developing access, run:
+```bash
+uv pip install -e .
+```
 
 ---
 
