@@ -12,6 +12,12 @@ dependencies = [
     "torch-geometric>=2.7.0",
     "matplotlib>=3.10.7",
     "wandb>=0.22.3",
+    "hydra-list-sweeper>=1.1.0",
+    "scipy>=1.16.3",
+    "pandas>=2.3.3",
+    "seaborn>=0.13.2",
+    "matplot2tikz>=0.5.1",
+    "meshio>=5.3.5",
 ]
 
 [build-system]
