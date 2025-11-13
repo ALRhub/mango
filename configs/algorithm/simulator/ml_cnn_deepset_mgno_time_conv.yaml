@@ -1,9 +1,0 @@
-defaults:
-  - encoder: cnn_deepset
-  - decoder: mgno
-
-decoder:
-  time_conv_type: conv_decoder
-
-
-name: ml_cnn_deepset_mgno_time_conv

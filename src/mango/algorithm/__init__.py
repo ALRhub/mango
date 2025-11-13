@@ -10,21 +10,15 @@ def get_algorithm(config: ConfigDict, train_dl, train_ds, eval_ds, loading=False
         case "mgn":
             from mango.algorithm.mgn import MGN
             algorithm_class = MGN
-        case "ltsgns_v2":
-            from mango.algorithm.ltsgns_v2 import LTSGNSV2
-            algorithm_class = LTSGNSV2
-        case "ltsgns_v2_regression":
-            from mango.algorithm.ltsgns_v2_regression import LTSGNSV2Regression
-            algorithm_class = LTSGNSV2Regression
-        case "ltsgns_v2_training_mat_prop":
-            from mango.algorithm.ltsgns_v2_training_mat_prop import LTSGNSV2TrainingMatProp
-            algorithm_class = LTSGNSV2TrainingMatProp
-        case "ltsgns_v2_two_stages":
-            from mango.algorithm.ltsgns_v2_two_stages import LTSGNSV2TwoStages
-            algorithm_class = LTSGNSV2TwoStages
-        case "no_ml_mgn_torch_geometric":
-            from mango.algorithm.no_ml_mgn_torch_geometric import NoMLMGNTorchGeometric
-            algorithm_class = NoMLMGNTorchGeometric
+        case "mango_regression":
+            from mango.algorithm.mango_regression import MangoRegression
+            algorithm_class = MangoRegression
+        case "mango_training_mat_prop":
+            from mango.algorithm.mango_training_mat_prop import MangoTrainingMatProp
+            algorithm_class = MangoTrainingMatProp
+        case "mango_two_stages":
+            from mango.algorithm.mango_two_stages import MangoTwoStages
+            algorithm_class = MangoTwoStages
         case "no_ml_mgn":
             from mango.algorithm.no_ml_mgn import NoMLMGN
             algorithm_class = NoMLMGN

@@ -1,7 +1,7 @@
 import torch
 
 from mango.dataset.util.graph_input_output_util import unpack_ml_batch
-from mango.simulator.gnn.egno.mgno import MGNO
+from mango.simulator.mango import Mango
 from mango.simulator.ml_encoder.abstract_encoder import AbstractEncoder
 
 
@@ -13,7 +13,7 @@ class MGNEncoder(AbstractEncoder):
         super().__init__(config)
         x, v, h, h_description, edge_indices, edge_features, context_trajs, target_trajs = unpack_ml_batch(
             example_input_batch, remove_batch_dim=True)
-        self.mgno_backbone = MGNO(
+        self.mgno_backbone = Mango(
             n_layers=config.n_layers,
             h_dim=h.shape[-1],
             edge_feature_dim=edge_features.shape[-1],

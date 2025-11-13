@@ -1,0 +1,37 @@
+# @package _global_
+
+defaults:
+  - override /dataset: sphere_cloth_v3
+  - override /algorithm: mango_training_mat_prop
+  - override /algorithm/simulator: ml_cnn_deepset_mango_time_conv
+
+algorithm:
+  simulator:
+    decoder:
+      latent_dimension: 64
+
+logger:
+  wandb:
+    enabled: True
+
+dataset:
+  train_dataset:
+    dataset_size: null
+    material_properties: False
+  eval_dataset:
+    dataset_size: null
+
+trainer:
+  epochs: 8000
+  num_sanity_val_steps: 1
+  checkpointing: True
+exp_name: exp5401_sc_ml_mgno
+
+hydra:
+  sweeper:
+    grid_params:
+      seed: 100, 101, 102, 103, 104
+
+
+
+

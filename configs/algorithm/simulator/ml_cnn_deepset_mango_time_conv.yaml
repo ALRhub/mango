@@ -1,0 +1,9 @@
+defaults:
+  - encoder: cnn_deepset
+  - decoder: mango
+
+decoder:
+  time_conv_type: conv_decoder
+
+
+name: ml_cnn_deepset_mango_time_conv

@@ -1,9 +1,0 @@
-name: mgno
-node_aggregation: virtual_node  # virtual_node, mean, max
-n_layers: 10
-latent_dimension: 128
-time_emb_dim: 32
-scatter_reduce: mean
-activation: leakyrelu
-use_hidden_layers: False
-time_conv_type: spectral

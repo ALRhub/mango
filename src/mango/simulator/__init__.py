@@ -7,9 +7,6 @@ def get_simulator(simulator_config, train_dl, eval_ds):
     for example_batch in train_dl:
         break
     assert example_batch is not None, "The train iterator of the environment must not be empty."
-    if simulator_config.name == "hmpn_step_simulator":
-        from mango.simulator.hmpn_step_simulator import HMPNStepSimulator
-        return HMPNStepSimulator(simulator_config, example_batch)
     if "ml" in simulator_config.name:
         # all meta learning simulators
         encoder = get_encoder(simulator_config.encoder, example_batch)
@@ -24,9 +21,6 @@ def get_encoder(encoder_config, example_batch):
     if encoder_config.name == "egno":
         from mango.simulator.ml_encoder.egno_encoder import EGNOEncoder
         return EGNOEncoder(encoder_config, example_batch)
-    elif encoder_config.name == "mgno":
-        from mango.simulator.ml_encoder.mgno_encoder import MGNOEncoder
-        return MGNOEncoder(encoder_config, example_batch)
     elif encoder_config.name == "mgn":
         from mango.simulator.ml_encoder.mgn_encoder import MGNEncoder
         return MGNEncoder(encoder_config, example_batch)
@@ -50,12 +44,9 @@ def get_decoder(decoder_config, example_batch, eval_ds):
     if decoder_config.name == "egno":
         from mango.simulator.ml_decoder.egno_decoder import EGNODecoder
         return EGNODecoder(decoder_config, example_batch)
-    elif decoder_config.name == "mgno":
-        from mango.simulator.ml_decoder.mgno_decoder import MGNODecoder
-        return MGNODecoder(decoder_config, example_batch)
-    elif decoder_config.name == "hmpn_step_simulator":
-        from mango.simulator.hmpn_step_simulator import HMPNStepSimulator
-        return HMPNStepSimulator(decoder_config, example_batch)
+    elif decoder_config.name == "mango":
+        from mango.simulator.ml_decoder.mango_decoder import MangoDecoder
+        return MangoDecoder(decoder_config, example_batch)
     elif decoder_config.name == "egnn":
         from mango.simulator.ml_decoder.egnn_decoder import EGNNDecoder
         return EGNNDecoder(decoder_config, example_batch)

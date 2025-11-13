@@ -3,7 +3,7 @@ from omegaconf import OmegaConf
 
 from mango.dataset.util.graph_input_output_util import unpack_ml_batch
 from mango.simulator.decoder import Decoder, ScaledTanh
-from mango.simulator.gnn.egno.mgno import MGNO
+from mango.simulator.mgno import MGNO
 from mango.simulator.util.mlp import MLP
 
 

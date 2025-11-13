@@ -19,7 +19,6 @@ hydra:
   sweep:
     dir: ./output/hydra/training/${now:%Y-%m-%d}
     subdir: ${exp_name}/${sub_dir_shortener:${hydra:job.override_dirname}, 3, False}/seed_${format:${seed}, '{:02d}'}
-#    subdir: ${recorder.wandb.group_name}/${recorder.wandb.job_type}/seed_${seed}
   job:
     config:
       override_dirname:

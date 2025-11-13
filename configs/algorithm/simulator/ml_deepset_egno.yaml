@@ -1,5 +1,0 @@
-defaults:
-  - encoder: deepset
-  - decoder: egno
-
-name: ml_deepset_egno

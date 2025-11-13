@@ -1,0 +1,9 @@
+defaults:
+  - encoder: dummy
+  - decoder: mango
+
+
+decoder:
+  time_conv_type: conv_decoder
+
+name: ml_dummy_mango_time_conv

@@ -1,0 +1,12 @@
+defaults:
+  - simulator: ???
+  - optimizer: adamw
+  - scheduler: standard
+  - evaluator: ml_evaluator
+  - _self_
+
+name: mango_training_mat_prop
+mat_prop_activation: relu
+verbose: False
+regression: True
+check_val_every_n_epoch: 10
