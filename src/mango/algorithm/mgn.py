@@ -6,7 +6,6 @@ from mango.algorithm.abstract_algorithm import AbstractAlgorithm
 from mango.dataset.util.graph_input_output_util import get_deformable_pos, get_deformable_mask
 from mango.util.own_types import  ConfigDict
 
-ltsgns
 class MGN(AbstractAlgorithm):
     def __init__(self, config: ConfigDict, simulator: torch.nn.Module, train_ds, eval_ds: torch.utils.data.Dataset):
         super().__init__(config, simulator, train_ds, eval_ds)

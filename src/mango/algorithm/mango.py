@@ -28,31 +28,6 @@ class Mango(AbstractMLAlgorithm):
 
     def predict_trajectories(self, batch) -> torch.Tensor:
         with torch.no_grad():
-            # timed prediction
-            # # Create events for timing
-            # start_event = torch.cuda.Event(enable_timing=True)
-            # end_event = torch.cuda.Event(enable_timing=True)
-            # # Record start time
-            # start_event.record()
-            # encoded_context_batch = self._encoder(batch)
-            # # Record end time
-            # end_event.record()
-            # torch.cuda.synchronize()
-            # # Compute elapsed time in milliseconds
-            # elapsed_time = start_event.elapsed_time(end_event)
-            # print(f"Time taken for encoding: {elapsed_time:.3f} ms")
-            #
-            # start_event = torch.cuda.Event(enable_timing=True)
-            # end_event = torch.cuda.Event(enable_timing=True)
-            # # Record start time
-            # start_event.record()
-            # prediction = self._decoder(batch, encoded_context_batch)
-            # end_event.record()
-            # torch.cuda.synchronize()
-            # # Compute elapsed time in milliseconds
-            # elapsed_time = start_event.elapsed_time(end_event)
-            # print(f"Time taken for decoding: {elapsed_time:.3f} ms")
-
             # standard prediction
             encoded_context_batch = self._encoder(batch)
             prediction = self._decoder(batch, encoded_context_batch)
