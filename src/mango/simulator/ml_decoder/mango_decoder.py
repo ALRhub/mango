@@ -6,7 +6,6 @@ from mango.simulator.decoder import Decoder, ScaledTanh
 from mango.simulator.mango import Mango
 from mango.simulator.util.mlp import MLP
 
-ltsgns
 class MangoDecoder(torch.nn.Module):
 
     def __init__(self, config, example_input_batch):
