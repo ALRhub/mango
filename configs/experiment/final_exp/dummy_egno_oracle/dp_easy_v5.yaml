@@ -2,7 +2,7 @@
 
 defaults:
   - override /dataset: dp_easy_v5
-  - override /algorithm: ltsgns_v2
+  - override /algorithm: dummy_mango
   - override /algorithm/simulator: ml_dummy_egno
   - override /algorithm/optimizer: adamw
 

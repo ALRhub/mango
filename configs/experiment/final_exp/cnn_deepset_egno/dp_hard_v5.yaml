@@ -2,7 +2,7 @@
 
 defaults:
   - override /dataset: dp_hard_v5
-  - override /algorithm: ltsgns_v2_training_mat_prop
+  - override /algorithm: mango_training_mat_prop
   - override /algorithm/simulator: ml_cnn_deepset_egno
 
 logger:

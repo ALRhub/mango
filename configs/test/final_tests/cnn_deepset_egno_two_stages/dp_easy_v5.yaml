@@ -2,7 +2,7 @@
 
 defaults:
   - override /dataset: dp_easy_v5
-  - override /algorithm: ltsgns_v2_two_stages
+  - override /algorithm: mango_two_stages
   - override /algorithm/simulator: ml_cnn_deepset_egno
   - override /algorithm/evaluator: test_evaluator
 

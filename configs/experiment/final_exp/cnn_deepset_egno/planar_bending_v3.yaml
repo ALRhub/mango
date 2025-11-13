@@ -2,7 +2,7 @@
 
 defaults:
   - override /dataset: planar_bending_v3
-  - override /algorithm: ltsgns_v2_training_mat_prop
+  - override /algorithm: mango_training_mat_prop
   - override /algorithm/simulator: ml_cnn_deepset_egno
 
 logger:

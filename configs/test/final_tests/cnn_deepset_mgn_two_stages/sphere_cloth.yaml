@@ -2,7 +2,7 @@
 
 defaults:
   - override /dataset: sphere_cloth_v3
-  - override /algorithm: ltsgns_v2_two_stages
+  - override /algorithm: mango_two_stages
   - override /algorithm/simulator: ml_cnn_deepset_mgn
   - override /algorithm/evaluator: test_evaluator
 
