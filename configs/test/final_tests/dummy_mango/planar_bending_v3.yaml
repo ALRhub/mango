@@ -1,20 +1,15 @@
 # @package _global_
 
 defaults:
-  - override /dataset: sphere_cloth_v3
-  - override /algorithm: ltsgns_v2
-  - override /algorithm/simulator: ml_dummy_mgno_time_conv
+  - override /dataset: planar_bending_v3
+  - override /algorithm: dummy_mango
+  - override /algorithm/simulator: ml_dummy_mango_time_conv
   - override /algorithm/optimizer: adamw
   - override /algorithm/evaluator: test_evaluator
 
-
 loading:
-  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/sc/exp5201_sc_dummy_mgno
+  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/pbv3_easy/exp5201_pbv3_dummy_mgno
 
-algorithm:
-  simulator:
-    decoder:
-      latent_dimension: 64
 
 logger:
   wandb:
@@ -38,7 +33,6 @@ hydra:
   sweeper:
     grid_params:
       loading.seeds: seed_100, seed_101, seed_102, seed_103, seed_104
-
 
 
 

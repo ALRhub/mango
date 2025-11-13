@@ -19,6 +19,9 @@ def get_algorithm(config: ConfigDict, train_dl, train_ds, eval_ds, loading=False
         case "mango_two_stages":
             from mango.algorithm.mango_two_stages import MangoTwoStages
             algorithm_class = MangoTwoStages
+        case "dummy_mango":
+            from mango.algorithm.mango import Mango
+            algorithm_class = Mango
         case "no_ml_mgn":
             from mango.algorithm.no_ml_mgn import NoMLMGN
             algorithm_class = NoMLMGN

@@ -1,14 +1,15 @@
 # @package _global_
 
 defaults:
-  - override /dataset: planar_bending_v3
-  - override /algorithm: ltsgns_v2_training_mat_prop
-  - override /algorithm/simulator: ml_cnn_deepset_mgno_time_conv
+  - override /dataset: dp_easy_v5
+  - override /algorithm: dummy_mango
+  - override /algorithm/simulator: ml_dummy_mgno_time_conv
+  - override /algorithm/optimizer: adamw
   - override /algorithm/evaluator: test_evaluator
 
 
 loading:
-  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/pbv3_easy/exp5401_planar_bending_v3_ml_mgno
+  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/dpv5_easy/exp5303_dp_easy_v5_dummy_mgno_oracle
 
 logger:
   wandb:
@@ -17,7 +18,7 @@ logger:
 dataset:
   train_dataset:
     dataset_size: null
-    material_properties: False
+    material_properties: True
   eval_dataset:
     dataset_size: null
 
@@ -32,6 +33,7 @@ hydra:
   sweeper:
     grid_params:
       loading.seeds: seed_100, seed_101, seed_102, seed_103, seed_104
+
 
 
 

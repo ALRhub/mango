@@ -1,13 +1,13 @@
 # @package _global_
 
 defaults:
-  - override /dataset: dp_hard_v5
-  - override /algorithm: ltsgns_v2_two_stages
-  - override /algorithm/simulator: ml_cnn_deepset_mgno_time_conv
+  - override /dataset: planar_bending_v3
+  - override /algorithm: mango_two_stages
+  - override /algorithm/simulator: ml_cnn_deepset_mango_time_conv
   - override /algorithm/evaluator: test_evaluator
 
 loading:
-  root_path: /lsdf/kit/iar/projects/for5339/ltsgnsv2/checkpoints/two_stages/exp5803_dp_hard_v5_two_stages_mgno
+  root_path: /lsdf/kit/iar/projects/for5339/ltsgnsv2/checkpoints/two_stages/exp5803_planar_bending_v3_two_stages_mgno
   output_path: /lsdf/kit/iar/projects/for5339/ltsgnsv2/evaluations
 
 logger:

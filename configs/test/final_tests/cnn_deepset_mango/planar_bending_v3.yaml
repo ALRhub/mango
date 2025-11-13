@@ -2,14 +2,13 @@
 
 defaults:
   - override /dataset: planar_bending_v3
-  - override /algorithm: ltsgns_v2
-  - override /algorithm/simulator: ml_dummy_mgno_time_conv
-  - override /algorithm/optimizer: adamw
+  - override /algorithm: mango_training_mat_prop
+  - override /algorithm/simulator: ml_cnn_deepset_mango_time_conv
   - override /algorithm/evaluator: test_evaluator
 
-loading:
-  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/pbv3_easy/exp5201_pbv3_dummy_mgno
 
+loading:
+  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/pbv3_easy/exp5401_planar_bending_v3_ml_mgno
 
 logger:
   wandb:

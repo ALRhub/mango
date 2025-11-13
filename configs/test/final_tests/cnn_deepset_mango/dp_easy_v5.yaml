@@ -1,14 +1,13 @@
 # @package _global_
 
 defaults:
-  - override /dataset: sphere_cloth_v3
-  - override /algorithm: ltsgns_v2_two_stages
-  - override /algorithm/simulator: ml_cnn_deepset_mgno_time_conv
+  - override /dataset: dp_easy_v5
+  - override /algorithm: mango_training_mat_prop
+  - override /algorithm/simulator: ml_cnn_deepset_mango_time_conv
   - override /algorithm/evaluator: test_evaluator
 
 loading:
-  root_path: /lsdf/kit/iar/projects/for5339/ltsgnsv2/checkpoints/two_stages/exp5803_sc_two_stages_mgno
-  output_path: /lsdf/kit/iar/projects/for5339/ltsgnsv2/evaluations
+  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/dpv5_easy/exp5403_dp_easy_v5_ml_mgno
 
 logger:
   wandb:
@@ -26,8 +25,13 @@ trainer:
   num_sanity_val_steps: 1
   checkpointing: False
 exp_name: EVAL_stuff
+seed: 0
 
 hydra:
   sweeper:
     grid_params:
       loading.seeds: seed_100, seed_101, seed_102, seed_103, seed_104
+
+
+
+

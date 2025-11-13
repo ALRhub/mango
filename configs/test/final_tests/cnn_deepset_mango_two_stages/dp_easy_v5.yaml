@@ -1,15 +1,14 @@
 # @package _global_
 
 defaults:
-  - override /dataset: planar_bending_hard_v1
-  - override /algorithm: ltsgns_v2
-  - override /algorithm/simulator: ml_dummy_mgno_time_conv
-  - override /algorithm/optimizer: adamw
+  - override /dataset: dp_easy_v5
+  - override /algorithm: mango_two_stages
+  - override /algorithm/simulator: ml_cnn_deepset_mango_time_conv
   - override /algorithm/evaluator: test_evaluator
 
-
 loading:
-  root_path: /home/i53/mitarbeiter/philipp_dahlinger/lsdf/ltsgnsv2/checkpoints/pbv1_hard/exp5201_pb_hard_v1_dummy_mgno
+  root_path: /lsdf/kit/iar/projects/for5339/ltsgnsv2/checkpoints/two_stages/exp5804_dp_easy_v5_two_stages_mgno
+  output_path: /lsdf/kit/iar/projects/for5339/ltsgnsv2/evaluations
 
 logger:
   wandb:
@@ -27,12 +26,8 @@ trainer:
   num_sanity_val_steps: 1
   checkpointing: False
 exp_name: EVAL_stuff
-seed: 0
 
 hydra:
   sweeper:
     grid_params:
       loading.seeds: seed_100, seed_101, seed_102, seed_103, seed_104
-
-
-
