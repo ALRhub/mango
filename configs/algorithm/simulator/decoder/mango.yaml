@@ -1,4 +1,4 @@
-name: mgno
+name: mango
 n_layers: 15
 context_encoding_dimension: ${..encoder.latent_dimension}
 scatter_reduce: mean

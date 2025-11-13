@@ -1,7 +1,6 @@
 name: pb_ml
 wandb_name: pb_v3_ml
-root: ../datasets/ltsgnsv2/ml_pb_v3.hdf5
-# root: /mnt/lsdf/for5339/datasets/ltsgnsv2/ml_pb_v2.hdf5
+root: ../datasets/mango/ml_pb_v3.hdf5
 z_pos_feature: False
 
 

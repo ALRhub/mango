@@ -26,7 +26,7 @@ trainer:
   epochs: 8000
   num_sanity_val_steps: 1
   checkpointing: True
-exp_name: exp5201_sc_dummy_mgno
+exp_name: exp5201_sc_dummy_mango
 
 hydra:
   sweeper:

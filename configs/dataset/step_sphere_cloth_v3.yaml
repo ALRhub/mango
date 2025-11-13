@@ -1,7 +1,7 @@
 name: sphere_cloth_step_ml
 wandb_name: sphere_cloth_ml
-root: ../datasets/ltsgnsv2/sphere_cloth_v3.hdf5
-#root: /mnt/lsdf/for5339/datasets/ltsgnsv2/sphere_cloth_v1.hdf5
+root: ../datasets/mango/sphere_cloth_v3.hdf5
+
 z_pos_feature: False # for step based decoder, the z position is used as an additional feature
 
 

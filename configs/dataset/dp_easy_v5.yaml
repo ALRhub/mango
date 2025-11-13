@@ -1,6 +1,6 @@
 name: dp_ml
 wandb_name: dp_easy_v5_ml
-root: ../datasets/ltsgnsv2/ml_dp_easy_v5.hdf5
+root: ../datasets/mango/ml_dp_easy_v5.hdf5
 z_pos_feature: False
 
 
